@@ -62,7 +62,9 @@ public class EndpointsAsyncTask extends AsyncTask<Context, Void, String> {
             Intent intent = new Intent(context, JokerMainActivity.class);
             intent.putExtra("joke", result);
             Log.v("AsyncTask: ",result);
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             context.startActivity(intent);
+
             if (jokeListener != null) {
                 jokeListener.isCompleted(result);
             }

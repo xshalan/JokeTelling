@@ -3,7 +3,8 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 25
-    buildToolsVersion "24.0.3"
+    buildToolsVersion '25.0.0'
+    publishNonDefault true
 
     defaultConfig {
         applicationId "app.com.example.shalan.joketelling"
@@ -30,6 +31,7 @@ android {
             applicationId "app.com.example.shalan.joketelling"
             buildConfigField "boolean", "PAID_VERSION", "true"
         }
+
     }
 }
 
@@ -43,7 +45,7 @@ dependencies {
     compile project(path: ':JokerBackend', configuration: 'android-endpoints')
 
     compile 'com.android.support:appcompat-v7:25.0.0'
-    compile 'com.google.android.gms:play-services-ads:9.8.0'
+    freeCompile 'com.google.android.gms:play-services-ads:9.8.0'
     compile 'com.google.code.findbugs:jsr305:2.0.1'
     compile 'com.android.support:support-v4:25.3.1'
 }
