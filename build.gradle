@@ -17,6 +17,27 @@ buildscript {
         mavenCentral()
     }
 }
+task runAppEngine(dependsOn: ":JokerBackend:appengineRun"){
+    evaluationDependsOn(":JokerBackend")
+    project(":JokerBackend").appengine.daemon = true
+
+    doLast{
+        println "the server is started!"
+    }
+}
+
+task runAppTests{
+    dependsOn ":app:connectedAndroidTest"
+    mustRunAfter "runAppEngine"
+}
+
+task stopAppEngine {
+    dependsOn ":JokerBackend:appengineStop"
+    mustRunAfter "runAppTests"
+    doLast{
+        println "the server is stopped!"
+    }
+}
 
 allprojects {
     repositories {

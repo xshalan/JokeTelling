@@ -6,8 +6,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
-import com.example.Joker;
-
 public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,7 +38,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void tellJoke(View view) {
-        Joker joke = new Joker() ;
         new EndpointsAsyncTask().execute(this);
     }
 
